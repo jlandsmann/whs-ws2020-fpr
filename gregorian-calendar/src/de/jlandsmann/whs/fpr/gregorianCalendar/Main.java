@@ -3,11 +3,15 @@ package de.jlandsmann.whs.fpr.gregorianCalendar;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.TextStyle;
+import java.time.temporal.WeekFields;
 import java.util.Locale;
 
 public class Main {
 
     private static final int DAYS_OF_WEEK = 7;
+    private static final Locale LOCALE = Locale.getDefault();
+    private static final DayOfWeek FIRST_DAY_OF_WEEK = WeekFields.of(LOCALE).getFirstDayOfWeek();
+
 
     public static void main(String[] args) {
         int year = Integer.parseInt(args[0]);
@@ -23,7 +27,7 @@ public class Main {
         int daysOfMonth = date.getMonth().length(isLeapYear);
         int selectedDay = date.getDayOfMonth();
         LocalDate firstDay = date.withDayOfMonth(1);        
-        int pre = firstDay.getDayOfWeek().getValue() - 1;
+        int pre = (DAYS_OF_WEEK + firstDay.getDayOfWeek().getValue() - FIRST_DAY_OF_WEEK.getValue()) % DAYS_OF_WEEK;
         int neededRows = (int) Math.ceil((daysOfMonth + pre) / DAYS_OF_WEEK);
         int currentDayOfMonth = -pre;
         printWeekdays();
@@ -40,8 +44,11 @@ public class Main {
     }
 
     private static void printWeekdays() {
-        for (var day : DayOfWeek.values()) {
-            System.out.printf("%4s", day.getDisplayName(TextStyle.SHORT_STANDALONE, Locale.GERMAN));
+        var firstDayOfWeek = FIRST_DAY_OF_WEEK.getValue() - 1;
+        var days = DayOfWeek.values();
+        for (int i = 0; i < days.length; i++) {
+            var day = days[(firstDayOfWeek + i) % days.length];
+            System.out.printf("%4s ", day.getDisplayName(TextStyle.SHORT_STANDALONE, LOCALE));
         }
         printLineBreak();
     }
@@ -53,12 +60,14 @@ public class Main {
     private static void printCell(int day, boolean selected) {
         if (day <= 0) {
             printEmptyCell();
+        } else if (selected) {
+            System.out.printf("%4d*", day);
         } else {
-            System.out.printf("%4d", day);
+            System.out.printf("%4d ", day);
         }
     }
 
     private static void printEmptyCell() {
-        System.out.printf("%4s", "");
+        System.out.printf("%4s ", "");
     }
 }
