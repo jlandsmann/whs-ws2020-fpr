@@ -1,5 +1,8 @@
 package de.jlandsmann.whs.fpr.gauss;
 
+import de.jlandsmann.whs.fpr.gauss.models.EquationSystem;
+import de.jlandsmann.whs.fpr.gauss.models.GaussSolver;
+
 /**
  * @author jlandsmann
  */
@@ -8,17 +11,17 @@ public class Main {
     public static void main(String[] args) {
         int n = 12;
         double[][] matrix = new double[n][n];
-        double[] result = new double[n];
+        double[] results = new double[n];
         for (int i = 0; i < n; i++) {
             for (int h = 0; h < n; h++) {
                 matrix[i][h] = Math.random() * n;
             }
-            result[i] = Math.random() * n;
+            results[i] = Math.random() * n;
         }
-        Main.print(matrix, result);
-        GaussSolver solver = new GaussSolver(matrix, result);
-        double[] variables = solver.solve();
-        Main.print(variables);
+        Main.print(matrix, results);
+        EquationSystem system = new EquationSystem(matrix, results);
+        EquationSystem result = GaussSolver.solve(system);
+        print(result.getResult());
     }
 
     /**
