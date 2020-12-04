@@ -16,18 +16,12 @@ public class Main {
     public static void main(String[] args) {
         BaseRepository<Employee> repo = new BaseInMemoryStorage<>();
         RepositoryHolder.setRepository(repo);
-        repo.create(new Employee("1234", "Max Mustermann", LocalDate.now(), 1234.00));
-        repo.create(new Employee("1234", "Max Mustermann", LocalDate.now(), 1234.00));
-        repo.create(new Employee("1234", "Max Mustermann", LocalDate.now(), 1234.00));
-        repo.create(new Employee("1234", "Max Mustermann", LocalDate.now(), 1234.00));
-        repo.create(new Employee("1234", "Max Mustermann", LocalDate.now(), 1234.00));
-        CommandReader commandReader = new CommandReader();
-        String commandName = commandReader.readCommand();
-        while (!commandName.equals("exit")) {
-            BaseCommand command = CommandHolder.getCommandByName(commandName);
-            command.execute();
 
-            commandName = commandReader.readCommand();
+        CommandReader commandReader = new CommandReader();
+        BaseCommand command = commandReader.readCommand();
+        while (!command.getName().equals("exit")) {
+            command.execute();
+            command = commandReader.readCommand();
         }
     }
 }

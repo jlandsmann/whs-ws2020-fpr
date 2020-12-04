@@ -1,6 +1,7 @@
 package de.jlandsmann.whs.fpr.personnelManagement.management.utils;
 
 import de.jlandsmann.whs.fpr.personnelManagement.management.commands.BaseCommand;
+import de.jlandsmann.whs.fpr.personnelManagement.management.commands.CreateCommand;
 import de.jlandsmann.whs.fpr.personnelManagement.management.commands.GetAllCommand;
 
 import java.util.Arrays;
@@ -8,7 +9,8 @@ import java.util.Arrays;
 public class CommandHolder {
 
     private static final BaseCommand[] commands = {
-            new GetAllCommand()
+            new GetAllCommand(),
+            new CreateCommand()
     };
 
     public static BaseCommand getCommandByName(String name) {
@@ -16,6 +18,12 @@ public class CommandHolder {
                 .filter(cmd -> cmd.getName().equals(name))
                 .findFirst()
                 .orElseThrow()
+        ;
+    }
+
+    public static boolean existsCommand(String name) {
+        return Arrays.stream(CommandHolder.commands)
+                .anyMatch(cmd -> cmd.getName().equals(name))
         ;
     }
 
