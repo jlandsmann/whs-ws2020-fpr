@@ -14,4 +14,6 @@ public interface BaseRepository<T extends BaseResource> {
     T update(String id, T resource);
 
     void delete(String id);
+
+    int getSize();
 }

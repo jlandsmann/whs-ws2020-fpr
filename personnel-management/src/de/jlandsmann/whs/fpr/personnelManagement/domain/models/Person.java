@@ -11,4 +11,9 @@ public abstract class Person extends BaseResource {
     public String getName() {
         return name;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + " | " + this.getName();
+    }
 }

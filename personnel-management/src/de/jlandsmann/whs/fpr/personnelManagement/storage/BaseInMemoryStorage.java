@@ -9,6 +9,10 @@ import java.util.Collection;
 public class BaseInMemoryStorage<T extends BaseResource> implements BaseRepository<T> {
     protected ArrayList<T> collection = new ArrayList<T>();
 
+    public BaseInMemoryStorage() {
+
+    }
+
     public Collection<T> getResultSet(int skip, int take) {
         return this.collection.subList(skip, skip + take);
     }
@@ -36,5 +40,9 @@ public class BaseInMemoryStorage<T extends BaseResource> implements BaseReposito
     public void delete(String id) {
         T target = this.get(id);
         this.collection.remove(target);
+    }
+
+    public int getSize() {
+        return this.collection.size();
     }
 }

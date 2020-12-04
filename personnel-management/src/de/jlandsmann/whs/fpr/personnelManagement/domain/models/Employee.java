@@ -7,7 +7,7 @@ public class Employee extends Person {
     private final LocalDate employeeSince;
     private double salary;
 
-    Employee(String id, String name, LocalDate employeeSince, double salary) {
+    public Employee(String id, String name, LocalDate employeeSince, double salary) {
         super(id, name);
         this.employeeSince = employeeSince;
         this.salary = salary;
@@ -24,5 +24,10 @@ public class Employee extends Person {
 
     public double getSalary() {
         return salary;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " | " + this.getEmployeeSince().toString() + " | " + this.getSalary();
     }
 }
