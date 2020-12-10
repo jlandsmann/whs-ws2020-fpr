@@ -11,7 +11,7 @@ public class GetAllCommand extends BaseCommand {
     private final BaseRepository<Employee> repository;
 
     public GetAllCommand() {
-        super("get_all", "Zeige alle Mitarbeiter an.");
+        super("list", "Zeige alle Mitarbeiter an.");
         repository = RepositoryHolder.getRepository();
     }
 

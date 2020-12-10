@@ -1,6 +1,7 @@
 package de.jlandsmann.whs.fpr.personnelManagement.domain.models;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Employee extends Person {
 
@@ -24,6 +25,21 @@ public class Employee extends Person {
 
     public double getSalary() {
         return salary;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Employee)) return false;
+        if (!super.equals(o)) return false;
+        Employee employee = (Employee) o;
+        return Double.compare(employee.getSalary(), getSalary()) == 0 &&
+                Objects.equals(getEmployeeSince(), employee.getEmployeeSince());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getEmployeeSince(), getSalary());
     }
 
     @Override
