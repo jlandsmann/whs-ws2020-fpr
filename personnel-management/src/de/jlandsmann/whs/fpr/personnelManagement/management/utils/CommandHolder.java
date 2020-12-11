@@ -1,18 +1,18 @@
 package de.jlandsmann.whs.fpr.personnelManagement.management.utils;
 
-import de.jlandsmann.whs.fpr.personnelManagement.management.commands.BaseCommand;
-import de.jlandsmann.whs.fpr.personnelManagement.management.commands.CheckDuplicateCommand;
-import de.jlandsmann.whs.fpr.personnelManagement.management.commands.CreateCommand;
-import de.jlandsmann.whs.fpr.personnelManagement.management.commands.GetAllCommand;
+import de.jlandsmann.whs.fpr.personnelManagement.management.commands.*;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 public class CommandHolder {
 
     private static final BaseCommand[] commands = {
             new GetAllCommand(),
             new CreateCommand(),
-            new CheckDuplicateCommand()
+            new CheckDuplicateCommand(),
+            new GetMinSalaryCommand(),
+            new GetMaxSalaryCommand()
     };
 
     public static BaseCommand getCommandByName(String name) {

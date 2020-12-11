@@ -13,6 +13,10 @@ public class BaseInMemoryStorage<T extends BaseResource> implements BaseReposito
 
     }
 
+    public Collection<T> getAll() {
+        return this.collection;
+    }
+
     public Collection<T> getResultSet(int skip, int take) {
         return this.collection.subList(skip, skip + take);
     }
