@@ -81,8 +81,9 @@ public class Main {
 
     private static void printMethod(Method method) {
         String modifiers = Modifier.toString(method.getModifiers());
+        String returnType = method.getReturnType().getName();
         String name = method.getName();
-        System.out.printf("    %s %s(", modifiers, name);
+        System.out.printf("    %s %s %s(", modifiers, returnType, name);
         printParameters(method.getParameters());
         System.out.printf("); %n");
     }
