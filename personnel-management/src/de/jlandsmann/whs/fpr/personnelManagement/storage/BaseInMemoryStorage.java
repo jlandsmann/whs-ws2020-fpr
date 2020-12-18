@@ -4,7 +4,7 @@ import de.jlandsmann.whs.fpr.personnelManagement.domain.models.BaseResource;
 import de.jlandsmann.whs.fpr.personnelManagement.domain.stores.BaseRepository;
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.List;
 
 public class BaseInMemoryStorage<T extends BaseResource> implements BaseRepository<T> {
     protected ArrayList<T> collection = new ArrayList<T>();
@@ -13,11 +13,11 @@ public class BaseInMemoryStorage<T extends BaseResource> implements BaseReposito
 
     }
 
-    public Collection<T> getAll() {
+    public List<T> getAll() {
         return this.collection;
     }
 
-    public Collection<T> getResultSet(int skip, int take) {
+    public List<T> getResultSet(int skip, int take) {
         return this.collection.subList(skip, skip + take);
     }
 

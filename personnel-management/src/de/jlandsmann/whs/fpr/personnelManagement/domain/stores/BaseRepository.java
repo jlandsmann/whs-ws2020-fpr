@@ -2,13 +2,13 @@ package de.jlandsmann.whs.fpr.personnelManagement.domain.stores;
 
 import de.jlandsmann.whs.fpr.personnelManagement.domain.models.BaseResource;
 
-import java.util.Collection;
+import java.util.List;
 
 public interface BaseRepository<T extends BaseResource> {
 
-    Collection<T> getAll();
+    List<T> getAll();
 
-    Collection<T> getResultSet(int skip, int take);
+    List<T> getResultSet(int skip, int take);
 
     T get(String id);
 

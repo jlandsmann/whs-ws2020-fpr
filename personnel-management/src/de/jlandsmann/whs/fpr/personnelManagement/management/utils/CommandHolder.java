@@ -29,4 +29,8 @@ public class CommandHolder {
         ;
     }
 
+    public static BaseCommand[] getCommands() {
+        return commands;
+    }
+
 }
