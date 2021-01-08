@@ -19,8 +19,8 @@ public abstract class Person extends BaseResource {
         if (this == o) return true;
         if (!(o instanceof Person)) return false;
         if (!super.equals(o)) return false;
-        Person person = (Person) o;
-        return Objects.equals(getName(), person.getName());
+        Person that = (Person) o;
+        return getName().equals(that.getName());
     }
 
     @Override

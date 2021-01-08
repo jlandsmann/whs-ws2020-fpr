@@ -3,10 +3,12 @@ package de.jlandsmann.whs.fpr.personnelManagement.domain.models;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Employee extends Person {
+public class Employee extends Person implements Properties.Size, Properties.Age {
 
     private final LocalDate employeeSince;
     private double salary;
+    private String size;
+    private int age;
 
     public Employee(String id, String name, LocalDate employeeSince, double salary) {
         super(id, name);
@@ -45,5 +47,20 @@ public class Employee extends Person {
     @Override
     public String toString() {
         return super.toString() + " | " + this.getEmployeeSince().toString() + " | " + this.getSalary();
+    }
+
+    @Override
+    public String getSize() {
+        return this.size;
+    }
+
+    @Override
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    @Override
+    public int getAge() {
+        return this.age;
     }
 }
