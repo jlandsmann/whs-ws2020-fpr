@@ -6,8 +6,9 @@ public class Manager extends Employee {
 
     private double bonus = 0;
 
-    Manager(String employeeId, String name, LocalDate employeeSince, double salary) {
+    public Manager(String employeeId, String name, LocalDate employeeSince, double salary, double bonus) {
         super(employeeId, name, employeeSince, salary);
+        this.bonus = bonus;
     }
 
     public void setBonus(double bonus) {

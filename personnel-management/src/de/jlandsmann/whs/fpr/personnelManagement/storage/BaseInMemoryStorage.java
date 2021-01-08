@@ -9,8 +9,10 @@ import java.util.List;
 public class BaseInMemoryStorage<T extends BaseResource> implements BaseRepository<T> {
     protected ArrayList<T> collection = new ArrayList<T>();
 
-    public BaseInMemoryStorage() {
+    public BaseInMemoryStorage() {  }
 
+    public BaseInMemoryStorage(ArrayList<T> collection) {
+        this.collection = collection;
     }
 
     public List<T> getAll() {

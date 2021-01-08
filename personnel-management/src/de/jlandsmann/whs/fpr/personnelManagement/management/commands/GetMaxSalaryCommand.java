@@ -2,6 +2,7 @@ package de.jlandsmann.whs.fpr.personnelManagement.management.commands;
 
 import de.jlandsmann.whs.fpr.personnelManagement.domain.models.Employee;
 import de.jlandsmann.whs.fpr.personnelManagement.domain.stores.BaseRepository;
+import de.jlandsmann.whs.fpr.personnelManagement.domain.stores.EmployeeRepository;
 import de.jlandsmann.whs.fpr.personnelManagement.management.utils.RepositoryHolder;
 
 import java.util.Collections;
@@ -9,17 +10,16 @@ import java.util.Comparator;
 
 public class GetMaxSalaryCommand extends BaseCommand {
 
-    private final BaseRepository<Employee> repository;
+    private final EmployeeRepository repository;
 
     public GetMaxSalaryCommand() {
         super("get-max-salary", "Returns employee with highest salary");
-        repository = RepositoryHolder.getRepository();
+        repository = RepositoryHolder.employeeRepository;
     }
 
     @Override
     public void execute() {
-        final var employees = repository.getAll();
-        final var highestSalary = Collections.max(employees, Comparator.comparingDouble(Employee::getSalary));
+        final var highestSalary = repository.getMaxSalary();
         System.out.println(highestSalary);
     }
 }

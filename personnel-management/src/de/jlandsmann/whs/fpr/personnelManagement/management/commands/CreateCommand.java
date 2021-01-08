@@ -1,30 +1,49 @@
 package de.jlandsmann.whs.fpr.personnelManagement.management.commands;
 
 import de.jlandsmann.whs.fpr.personnelManagement.domain.models.Employee;
+import de.jlandsmann.whs.fpr.personnelManagement.domain.models.Manager;
 import de.jlandsmann.whs.fpr.personnelManagement.domain.stores.BaseRepository;
+import de.jlandsmann.whs.fpr.personnelManagement.domain.stores.EmployeeRepository;
 import de.jlandsmann.whs.fpr.personnelManagement.management.utils.RepositoryHolder;
 
 import java.time.LocalDate;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class CreateCommand extends BaseCommand {
 
     private final Scanner scanner;
-    private final BaseRepository<Employee> repository;
 
     public CreateCommand() {
         super("create", "Erstellt einen Angestellten");
-        repository = RepositoryHolder.getRepository();
         scanner = new Scanner(System.in);
     }
 
     @Override
     public void execute() {
+        final var createManager = askForCreateManager();
         final var id = askForId();
         final var name = askForName();
         final var salary = askForSalary();
-        Employee employee = new Employee(id, name, LocalDate.now(), salary);
-        repository.create(employee);
+
+        if (createManager) {
+            final var bonus = askForBonus();
+            Manager manager = new Manager(id, name, LocalDate.now(), salary, bonus);
+            RepositoryHolder.employeeRepository.create(manager);
+        } else {
+            Employee employee = new Employee(id, name, LocalDate.now(), salary);
+            RepositoryHolder.employeeRepository.create(employee);
+        }
+    }
+
+    private boolean askForCreateManager() {
+        String pattern = "^y|n";
+        String result = "n";
+        do {
+            print("Wollen Sie einen Manager erstellen?: (y/n)");
+            result = scanner.next();
+        } while (!result.matches(pattern));
+        return "y".equals(result);
     }
 
     private String askForId() {
@@ -39,6 +58,11 @@ public class CreateCommand extends BaseCommand {
 
     private double askForSalary() {
         print("Geben Sie ein Gehalt ein:");
+        return scanner.nextDouble();
+    }
+
+    private double askForBonus() {
+        print("Geben Sie einen Bonus ein:");
         return scanner.nextDouble();
     }
 

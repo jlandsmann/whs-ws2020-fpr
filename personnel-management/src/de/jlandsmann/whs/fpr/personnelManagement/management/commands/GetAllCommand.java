@@ -13,24 +13,20 @@ import java.util.Comparator;
 import java.util.Scanner;
 
 public class GetAllCommand extends BaseCommand {
-
-    private final BaseRepository<Employee> repository;
     private final Scanner scanner;
 
     public GetAllCommand() {
         super("list", "Zeige alle Mitarbeiter an.");
-        repository = RepositoryHolder.getRepository();
         scanner = new Scanner(System.in);
     }
 
     @Override
     public void execute() {
-        int size = repository.getSize();
         final var sortProperty = askForSortProperty();
         final var comparator = getComparatorByProperty(sortProperty);
-        final var collection = repository.getResultSet(0, size);
-        collection.sort(comparator);
-        this.printAll(collection);
+        final var employees = RepositoryHolder.employeeRepository.getAll();
+        employees.sort(comparator);
+        this.printAll(employees);
     }
 
     private Comparator<? super Employee> getComparatorByProperty(String sortProperty) {

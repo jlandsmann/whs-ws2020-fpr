@@ -1,16 +1,10 @@
 package de.jlandsmann.whs.fpr.personnelManagement.management.utils;
 
 import de.jlandsmann.whs.fpr.personnelManagement.domain.models.Employee;
-import de.jlandsmann.whs.fpr.personnelManagement.domain.stores.BaseRepository;
+import de.jlandsmann.whs.fpr.personnelManagement.domain.models.Manager;
+import de.jlandsmann.whs.fpr.personnelManagement.domain.stores.EmployeeRepository;
+import de.jlandsmann.whs.fpr.personnelManagement.domain.stores.ManagerRepository;
 
 public class RepositoryHolder {
-    private static BaseRepository<Employee> repository;
-
-    public static void setRepository(BaseRepository<Employee> repository) {
-        RepositoryHolder.repository = repository;
-    }
-
-    public static BaseRepository<Employee> getRepository() {
-        return repository;
-    }
+    public static EmployeeRepository employeeRepository;
 }
