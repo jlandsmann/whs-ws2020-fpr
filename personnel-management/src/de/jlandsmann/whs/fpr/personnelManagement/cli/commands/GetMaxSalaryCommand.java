@@ -1,12 +1,7 @@
-package de.jlandsmann.whs.fpr.personnelManagement.management.commands;
+package de.jlandsmann.whs.fpr.personnelManagement.cli.commands;
 
-import de.jlandsmann.whs.fpr.personnelManagement.domain.models.Employee;
-import de.jlandsmann.whs.fpr.personnelManagement.domain.stores.BaseRepository;
 import de.jlandsmann.whs.fpr.personnelManagement.domain.stores.EmployeeRepository;
-import de.jlandsmann.whs.fpr.personnelManagement.management.utils.RepositoryHolder;
-
-import java.util.Collections;
-import java.util.Comparator;
+import de.jlandsmann.whs.fpr.personnelManagement.cli.utils.RepositoryHolder;
 
 public class GetMaxSalaryCommand extends BaseCommand {
 

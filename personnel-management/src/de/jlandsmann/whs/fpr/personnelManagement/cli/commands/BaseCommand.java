@@ -1,6 +1,4 @@
-package de.jlandsmann.whs.fpr.personnelManagement.management.commands;
-
-import java.util.InputMismatchException;
+package de.jlandsmann.whs.fpr.personnelManagement.cli.commands;
 
 public abstract class BaseCommand {
     private final String name;

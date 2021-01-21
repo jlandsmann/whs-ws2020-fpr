@@ -1,9 +1,8 @@
-package de.jlandsmann.whs.fpr.personnelManagement.management.utils;
+package de.jlandsmann.whs.fpr.personnelManagement.cli.utils;
 
-import de.jlandsmann.whs.fpr.personnelManagement.management.commands.*;
+import de.jlandsmann.whs.fpr.personnelManagement.cli.commands.*;
 
 import java.util.Arrays;
-import java.util.Collections;
 
 public class CommandHolder {
 

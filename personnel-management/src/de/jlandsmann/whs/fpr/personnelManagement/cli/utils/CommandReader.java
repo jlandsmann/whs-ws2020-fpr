@@ -1,6 +1,6 @@
-package de.jlandsmann.whs.fpr.personnelManagement.management.utils;
+package de.jlandsmann.whs.fpr.personnelManagement.cli.utils;
 
-import de.jlandsmann.whs.fpr.personnelManagement.management.commands.BaseCommand;
+import de.jlandsmann.whs.fpr.personnelManagement.cli.commands.BaseCommand;
 
 import java.util.Scanner;
 

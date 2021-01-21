@@ -1,14 +1,11 @@
-package de.jlandsmann.whs.fpr.personnelManagement.management.commands;
+package de.jlandsmann.whs.fpr.personnelManagement.cli.commands;
 
 import de.jlandsmann.whs.fpr.personnelManagement.domain.models.BaseResource;
 import de.jlandsmann.whs.fpr.personnelManagement.domain.models.Employee;
 import de.jlandsmann.whs.fpr.personnelManagement.domain.models.Person;
-import de.jlandsmann.whs.fpr.personnelManagement.domain.stores.BaseRepository;
-import de.jlandsmann.whs.fpr.personnelManagement.management.utils.RepositoryHolder;
+import de.jlandsmann.whs.fpr.personnelManagement.cli.utils.RepositoryHolder;
 
-import java.time.LocalDate;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
 

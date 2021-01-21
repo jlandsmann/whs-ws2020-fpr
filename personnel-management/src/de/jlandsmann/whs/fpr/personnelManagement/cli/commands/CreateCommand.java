@@ -1,14 +1,11 @@
-package de.jlandsmann.whs.fpr.personnelManagement.management.commands;
+package de.jlandsmann.whs.fpr.personnelManagement.cli.commands;
 
 import de.jlandsmann.whs.fpr.personnelManagement.domain.models.Employee;
 import de.jlandsmann.whs.fpr.personnelManagement.domain.models.Manager;
-import de.jlandsmann.whs.fpr.personnelManagement.domain.stores.BaseRepository;
-import de.jlandsmann.whs.fpr.personnelManagement.domain.stores.EmployeeRepository;
-import de.jlandsmann.whs.fpr.personnelManagement.management.utils.RepositoryHolder;
+import de.jlandsmann.whs.fpr.personnelManagement.cli.utils.RepositoryHolder;
 
 import java.time.LocalDate;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 public class CreateCommand extends BaseCommand {
 

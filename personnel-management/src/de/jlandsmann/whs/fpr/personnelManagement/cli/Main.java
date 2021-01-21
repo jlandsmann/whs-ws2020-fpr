@@ -1,9 +1,9 @@
-package de.jlandsmann.whs.fpr.personnelManagement.management;
+package de.jlandsmann.whs.fpr.personnelManagement.cli;
 
 import de.jlandsmann.whs.fpr.personnelManagement.domain.stores.EmployeeRepository;
-import de.jlandsmann.whs.fpr.personnelManagement.management.commands.BaseCommand;
-import de.jlandsmann.whs.fpr.personnelManagement.management.utils.CommandReader;
-import de.jlandsmann.whs.fpr.personnelManagement.management.utils.RepositoryHolder;
+import de.jlandsmann.whs.fpr.personnelManagement.cli.commands.BaseCommand;
+import de.jlandsmann.whs.fpr.personnelManagement.cli.utils.CommandReader;
+import de.jlandsmann.whs.fpr.personnelManagement.cli.utils.RepositoryHolder;
 import de.jlandsmann.whs.fpr.personnelManagement.storage.EmployeeStorage;
 
 public class Main {
