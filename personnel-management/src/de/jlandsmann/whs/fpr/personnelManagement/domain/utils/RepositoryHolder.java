@@ -1,4 +1,4 @@
-package de.jlandsmann.whs.fpr.personnelManagement.cli.utils;
+package de.jlandsmann.whs.fpr.personnelManagement.domain.utils;
 
 import de.jlandsmann.whs.fpr.personnelManagement.domain.stores.EmployeeRepository;
 

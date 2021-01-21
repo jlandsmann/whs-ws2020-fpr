@@ -1,7 +1,7 @@
 package de.jlandsmann.whs.fpr.personnelManagement.cli.commands;
 
 import de.jlandsmann.whs.fpr.personnelManagement.domain.stores.EmployeeRepository;
-import de.jlandsmann.whs.fpr.personnelManagement.cli.utils.RepositoryHolder;
+import de.jlandsmann.whs.fpr.personnelManagement.domain.utils.RepositoryHolder;
 
 public class GetMinSalaryCommand extends BaseCommand {
 

@@ -2,7 +2,7 @@ package de.jlandsmann.whs.fpr.personnelManagement.cli.commands;
 
 import de.jlandsmann.whs.fpr.personnelManagement.domain.models.Employee;
 import de.jlandsmann.whs.fpr.personnelManagement.domain.models.Manager;
-import de.jlandsmann.whs.fpr.personnelManagement.cli.utils.RepositoryHolder;
+import de.jlandsmann.whs.fpr.personnelManagement.domain.utils.RepositoryHolder;
 
 import java.time.LocalDate;
 import java.util.Scanner;

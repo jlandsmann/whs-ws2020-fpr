@@ -3,7 +3,7 @@ package de.jlandsmann.whs.fpr.personnelManagement.cli.commands;
 import de.jlandsmann.whs.fpr.personnelManagement.domain.models.BaseResource;
 import de.jlandsmann.whs.fpr.personnelManagement.domain.models.Employee;
 import de.jlandsmann.whs.fpr.personnelManagement.domain.models.Person;
-import de.jlandsmann.whs.fpr.personnelManagement.cli.utils.RepositoryHolder;
+import de.jlandsmann.whs.fpr.personnelManagement.domain.utils.RepositoryHolder;
 
 import java.util.Collection;
 import java.util.Comparator;
